@@ -4,6 +4,7 @@ Meteor.subscribe("lists");
 Meteor.subscribe("tags");
 Meteor.subscribe("items");
 
+
 //future
 //console.log(navigator.language);
 
@@ -11,7 +12,7 @@ Meteor.Router.add({
 	"/": function () {
 		if (!Meteor.user()) {
 			Meteor.Router.to("/signup/");
-			return "loginForm";
+			return "loginUI";
 		}
 		return "todosUI";
 	},
@@ -20,14 +21,14 @@ Meteor.Router.add({
 			Meteor.Router.to("/");
 			return "todosUI";
 		}
-		return "loginForm";
+		return "loginUI";
 	},
 	"/settings": function () {
 		if (Meteor.user()) {
 			
 			return "settingsUI";
 		}
-		return "loginForm";
+		return "loginUI";
 	},
 	"*": "notFound"
 });
@@ -35,8 +36,8 @@ Meteor.Router.add({
 
 Template.settingsUI.rendered = function() {
 	var user = Meteor.user();
-document.getElementsByName("groupName")[0].value = user.profile.group ;
-document.getElementsByName("userName")[0].value = user.profile.name ;
+//document.getElementsByName("groupName")[0].value = user.profile.group ;
+//document.getElementsByName("userName")[0].value = user.profile.name ;
 
 
 }
@@ -46,21 +47,21 @@ Template.settingsUI.events = ({
 
 "click button.saveUserSettings": function (event) {
     
-    var groupName=document.getElementsByName("groupName")[0].value;
-    var userName=document.getElementsByName("userName")[0].value;
+    var groupName = $("#groupName").val();
+    var userName = $("#userName").val();
 
 	//Meteor.users.update({_id:Meteor.user()._id},{$set: {"profile":{"group":groupName}}});
 	Meteor.users.update({_id:Meteor.user()._id},{$set: {profile:{name:userName,group:groupName}}});
 	
 	event.preventDefault();
-	return Meteor.Router.to('/settings');
+	//return Meteor.Router.to('/settings');
 	
 	},
 
 "click button.cancelUserSettings": function (event) {
 	console.log(Meteor.Router.page());
 	event.preventDefault();
-	return Meteor.Router.to('/');
+	//return Meteor.Router.to('/');
 	
 	}
 

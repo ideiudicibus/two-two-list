@@ -1,7 +1,10 @@
 {
   "packages": {
     "router": {},
-    "bootstrap-datepicker": {},
+    "bootstrap-datepicker": {
+    	"git" : "https://github.com/ideiudicibus/bootstrap-datepicker.git"
+
+    	},
     "simple-i18n": {},
     "groups": {}
   }

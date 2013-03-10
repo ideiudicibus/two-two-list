@@ -9,3 +9,14 @@ Meteor.publish("items", function () {
 Meteor.publish("tags", function () {
 	return Tags.find({ user: this.userId });
 });
+
+
+
+//customize accounts-ui so that some profile fields are created 
+Accounts.onCreateUser(function(options, user) {
+ 
+  if (!options.profile){
+    user.profile = {'name':options.email,'group':''};
+	}
+  return user;
+});
