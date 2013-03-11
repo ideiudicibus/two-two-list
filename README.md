@@ -5,8 +5,8 @@ to do list meteor.js web application
 
 preconditions: you must have node.js and npm on the machine
 
-install meteor:
-  curl https://install.meteor.com | /bin/sh
+###install meteor
+    curl https://install.meteor.com | /bin/sh
 
 ###install meteorite
     npm install -g meteorite
