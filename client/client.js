@@ -14,6 +14,10 @@ Meteor.Router.add({
 			Meteor.Router.to("/signup/");
 			return "loginUI";
 		}
+		/*
+		if(_.isBlank(Meteor.user().profile.group)){
+		return "addUserToGroupUI";}
+		*/
 		return "todosUI";
 	},
 	"/signup": function () {
@@ -36,16 +40,16 @@ Meteor.Router.add({
 
 Template.settingsUI.rendered = function() {
 	var user = Meteor.user();
-//document.getElementsByName("groupName")[0].value = user.profile.group ;
-//document.getElementsByName("userName")[0].value = user.profile.name ;
 
+$("#userName").val(user.profile.name);
+$("#groupName").val(user.profile.group);
 
 }
 
 
 Template.settingsUI.events = ({
 
-"click button.saveUserSettings": function (event) {
+"click a.saveUserSettings": function (event) {
     
     var groupName = $("#groupName").val();
     var userName = $("#userName").val();
@@ -58,10 +62,10 @@ Template.settingsUI.events = ({
 	
 	},
 
-"click button.cancelUserSettings": function (event) {
+"click a.cancelUserSettings": function (event) {
 	console.log(Meteor.Router.page());
 	event.preventDefault();
-	//return Meteor.Router.to('/');
+	return Meteor.Router.to('/');
 	
 	}
 

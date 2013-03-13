@@ -29,4 +29,11 @@ i18n.insert("it_IT","Search for items","Ricerca");
 
 i18n.insert("it_IT","Nothing scheduled","Nessuna Attività Prevista");
 
+i18n.insert("it_IT","Today","Oggi");
+
+i18n.insert("it_IT","Completed","Complete");
+
+i18n.insert("it_IT","Pending","Sospese");
+
+i18n.insert("it_IT","All","Tutte");
 

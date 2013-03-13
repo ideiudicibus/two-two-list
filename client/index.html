@@ -35,7 +35,7 @@
     <div class="btn-group pull-right">
 
     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-    <i class="icon-user"></i> {{currentUser.emails.0.address}} <span class="caret"></span>
+    <i class="icon-user"></i> {{currentUser.profile.name}} <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
     <li><a href="/settings" id="settings"><i class="icon-wrench"></i>{{t "Settings"}}</a></li>
@@ -324,6 +324,10 @@
 
 
 
+</template>
+
+<template name="addUserToGroupUI">
+addUserToGroupUI
 </template>
 
 
